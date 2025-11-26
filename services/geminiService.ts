@@ -10,22 +10,26 @@ export const transformText = async (text: string): Promise<TransformationResult>
     model: modelId,
     contents: text,
     config: {
-      systemInstruction: `
-        You are an AI text transformation engine for 'Text Magic Lite'.
-        Your task is to take any input text and return a JSON object with exactly three transformations:
-        1. "summary": A concise 1-line summary.
-        2. "emoji_version": The text converted into a fun, emoji-heavy style.
-        3. "formal_version": The text rewritten in a professional, formal tone.
-        
-        Ensure the output is strictly valid JSON matching the schema.
-      `,
+      systemInstruction: `You are an AI model inside a simple web app called "Text Magic Lite".
+Your task is extremely simple.
+Whenever the user enters any sentence, you must return the following 3 outputs in JSON format:
+
+1. "summary" → The short 1-line summary of the user’s input.
+2. "emoji_version" → Convert the sentence into an emoji-style fun version.
+3. "formal_version" → Convert the sentence into a more professional and formal version.
+
+Rules:
+• Always return only JSON. No extra text.
+• JSON Keys should be exactly: summary, emoji_version, formal_version
+• Do not include markdown. Only plain JSON.
+• The app should work even if the user inputs a small phrase or incomplete sentence.`,
       responseMimeType: "application/json",
       responseSchema: {
         type: Type.OBJECT,
         properties: {
-          summary: { type: Type.STRING, description: "A short 1-line summary" },
-          emoji_version: { type: Type.STRING, description: "Fun emoji version" },
-          formal_version: { type: Type.STRING, description: "Professional formal version" },
+          summary: { type: Type.STRING, description: "The short 1-line summary of the user’s input." },
+          emoji_version: { type: Type.STRING, description: "Convert the sentence into an emoji-style fun version." },
+          formal_version: { type: Type.STRING, description: "Convert the sentence into a more professional and formal version." },
         },
         required: ["summary", "emoji_version", "formal_version"],
       },

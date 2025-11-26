@@ -60,7 +60,7 @@ const App: React.FC = () => {
             <span className="text-indigo-600">instantly</span>.
           </h2>
           <p className="text-slate-500 text-lg">
-            Enter any text below to get a smart summary, a fun emoji remix, and a polished formal version.
+            Enter any text or phrase below to get a smart summary, a fun emoji remix, and a polished formal version.
           </p>
         </div>
 
@@ -71,7 +71,7 @@ const App: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Type or paste your text here..."
+              placeholder="Type a sentence or just a phrase here..."
               className="w-full min-h-[160px] p-6 text-lg bg-transparent border-0 focus:ring-0 resize-y rounded-xl placeholder:text-slate-300 focus:outline-none"
             />
             <div className="absolute bottom-4 right-4 text-xs text-slate-300 pointer-events-none">
