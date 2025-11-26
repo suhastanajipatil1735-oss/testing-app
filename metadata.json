@@ -1,0 +1,5 @@
+{
+  "name": "Text Magic Lite",
+  "description": "A simple yet powerful tool to instantly summarize, emojify, and formalize your text using Gemini.",
+  "requestFramePermissions": []
+}
