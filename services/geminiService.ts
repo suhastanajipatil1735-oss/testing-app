@@ -22,7 +22,11 @@ Rules:
 • Always return only JSON. No extra text.
 • JSON Keys should be exactly: summary, emoji_version, formal_version
 • Do not include markdown. Only plain JSON.
-• The app should work even if the user inputs a small phrase or incomplete sentence.`,
+• The app should work even if the user inputs a small phrase or incomplete sentence.
+
+Examples:
+Input: "running late"
+Output: { "summary": "User is behind schedule.", "emoji_version": "🏃‍♂️ Running late! ⏰😬", "formal_version": "I am currently running behind schedule." }`,
       responseMimeType: "application/json",
       responseSchema: {
         type: Type.OBJECT,
